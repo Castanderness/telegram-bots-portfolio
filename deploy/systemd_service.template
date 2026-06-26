@@ -1,0 +1,18 @@
+# Save as /etc/systemd/system/mybot.service
+# Then: systemctl enable mybot && systemctl start mybot
+
+[Unit]
+Description=Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=botuser
+WorkingDirectory=/home/botuser/BOT_FOLDER_HERE
+ExecStart=/home/botuser/BOT_FOLDER_HERE/venv/bin/python bot.py
+Restart=always
+RestartSec=10
+Environment=NO_PROXY=*
+
+[Install]
+WantedBy=multi-user.target
