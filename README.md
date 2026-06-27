@@ -1,91 +1,104 @@
-# Telegram Bot Developer — Production-Ready Python Bots
+# Telegram Bot Developer — Python Portfolio
 
-**9 ready-to-deploy Telegram bots** built for freelance sales and subscription income.
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://castanderness.github.io/telegram-bots-portfolio/portfolio/)
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
-[![aiogram](https://img.shields.io/badge/aiogram-3.7-orange)](https://docs.aiogram.dev)
+> **Open for freelance projects** | 2-5 day delivery | Starting from $49
 
 ---
 
-## Available Bots
+## Available Services
 
-| Bot | Features | Sell Price |
-|-----|----------|-----------|
-| **AI Assistant Pro** | Claude/GPT, subscription tiers, admin panel, SQLite | $99–199 |
-| **Booking Bot** | Date/time picker, no double-booking, admin notifications | $79–249 |
-| **Crypto Alert Bot** | Live CoinGecko prices, custom alerts, 10+ coins | $59–199 |
-| **Vacancy Channel Bot** | HH.ru API, auto-posts new jobs, duplicate filter | $69–149 |
-| **Auto-Content Bot** | Daily crypto news + tips, scheduled posts | $50–100 |
-| **Price Monitor Bot** | Avito scraper, price drop alerts | $80–150 |
-| **Tutor Bot** | English words/phrases/grammar, quizzes | $80–150 |
-| **Restaurant Bot** | Menu, table booking, admin order view | $150–300 |
-| **Survey Bot** | Custom questions, saves answers to Excel | $60–120 |
+| Service | Price | Delivery |
+|---------|-------|----------|
+| AI Telegram Bot (Claude/ChatGPT) | from $49 | 3-5 days |
+| Appointment Booking Bot | from $79 | 3-5 days |
+| Crypto Price Alert Bot | from $59 | 2-3 days |
+| Restaurant Bot (menu + reservations) | from $99 | 4-7 days |
+| Web Scraper → CSV/Excel | from $35 | 1-3 days |
+| Excel Automation Scripts | from $29 | 1-2 days |
+| Job Vacancy Telegram Channel | from $69 | 2-4 days |
+| Survey Bot → Excel Export | from $59 | 2-4 days |
 
 ---
 
-## Quick Start
+## Bots in This Repository
 
+### 1. `ai-telegram-bot-pro/` — AI Assistant with Subscription
+- Free tier: 20 messages/day
+- Premium: unlimited
+- Admin panel with stats
+- SQLite persistent storage
+
+### 2. `booking-bot/` — Appointment Scheduling Bot
+- Interactive date/time picker
+- No double-booking logic
+- Instant admin notifications
+- SQLite database
+
+### 3. `crypto-alert-bot/` — Price Alert Bot
+- Set price targets for BTC/ETH/SOL/TON
+- Live data from CoinGecko (free API)
+- Checks every 60 seconds
+
+### 4. `vacancy-bot/` — Job Vacancy Channel
+- Pulls from HH.ru API every 2 hours
+- Posts new vacancies automatically
+- Tracks posted IDs (no duplicates)
+
+### 5. `auto-content-bot/` — Auto-Posting Channel
+- Daily crypto price updates
+- Educational tips on schedule
+- APScheduler integration
+
+### 6. `restaurant-bot/` — Restaurant Bot
+- Browse menu by category
+- Book a table (date/time picker)
+- Admin notification for each reservation
+
+### 7. `tutor-bot/` — English Tutor Bot
+- Word of the day
+- Vocabulary quizzes
+- Grammar tips
+- No AI API needed
+
+### 8. `survey-bot/` — Survey → Excel
+- Multi-step surveys (ratings, choices, text)
+- Auto-exports to `.xlsx`
+- Admin receives results instantly
+
+### 9. `price-monitor-bot/` — Avito Price Monitor
+- Tracks listings by search query
+- Alerts on new items and price drops
+
+---
+
+## Tech Stack
+- **Python 3.12** + **aiogram 3.7** (FSM, inline keyboards)
+- **SQLite** for persistence (zero setup)
+- **Anthropic Claude Haiku** (~$0.001/1000 messages)
+- **CoinGecko API** (free, no key required)
+- **HH.ru API** (free)
+- **APScheduler** for cron jobs
+- **openpyxl** for Excel export
+
+---
+
+## Setup (any bot)
 ```bash
-# Clone and install
-git clone https://github.com/Castanderness/telegram-bots-portfolio.git
-cd telegram-bots-portfolio
-
-# Install all dependencies
-pip install aiogram==3.7.0 anthropic python-dotenv requests beautifulsoup4 openpyxl apscheduler fastapi uvicorn
-
-# Setup AI assistant bot
+git clone https://github.com/Castanderness/telegram-bots-portfolio
 cd ai-telegram-bot-pro
+pip install -r requirements.txt
 cp .env.example .env
-# Fill TELEGRAM_TOKEN + ANTHROPIC_API_KEY in .env
+# Fill TELEGRAM_TOKEN and ANTHROPIC_API_KEY in .env
 python bot.py
 ```
 
 ---
 
-## Tech Stack
+## Contact / Hire Me
 
-- **Python 3.12** — clean, typed code
-- **aiogram 3.x** — modern async Telegram framework  
-- **Anthropic Claude API** — AI responses (Haiku model, very cheap)
-- **SQLite** — persistent storage, no external DB needed
-- **APScheduler** — scheduled tasks for auto-posting bots
-- **BeautifulSoup4** — web scraping
-- **openpyxl** — Excel reports with charts
+**Portfolio site:** https://castanderness.github.io/telegram-bots-portfolio/portfolio/
 
----
+**Dev.to article:** https://dev.to/castanderness/i-built-9-production-ready-telegram-bots-in-python-open-source-345h
 
-## Services
+Available for freelance projects on Fiverr, Freelancer, and direct contact.
 
-All bots are available as **custom development services**:
-
-- Customize system prompt, branding, language
-- Add payment integration (Telegram Stars, USDT)
-- Deploy to VPS (included in Premium packages)
-
-**Contact:** Available on Fiverr, Kwork, Freelancer.com
-
-**Portfolio:** [castanderness.github.io/telegram-bots-portfolio](https://castanderness.github.io/telegram-bots-portfolio/portfolio/)
-
----
-
-## Project Structure
-
-```
-projects/
-├── ai-telegram-bot/          # Basic AI assistant
-├── ai-telegram-bot-pro/      # AI + subscriptions + admin
-├── booking-bot/              # Appointment scheduler
-├── crypto-alert-bot/         # Price alerts
-├── auto-content-bot/         # Channel automation
-├── vacancy-bot/              # Job board aggregator
-├── price-monitor-bot/        # Avito price tracker
-├── tutor-bot/                # English tutor
-├── restaurant-bot/           # Restaurant assistant
-├── survey-bot/               # Feedback collector
-├── chat-widget/              # Website chatbot (FastAPI)
-├── web-parser/               # Universal web scraper
-├── automation-scripts/       # Excel automation
-├── portfolio/                # HTML portfolio site
-└── fiverr-gigs/              # Gig descriptions (EN)
-```
+*2-5 day delivery | Clean Python code | 7-day support included*
