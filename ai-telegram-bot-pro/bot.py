@@ -5,12 +5,14 @@ from datetime import date, timedelta
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from aiogram.types import (Message, InlineKeyboardMarkup, InlineKeyboardButton,
+                           CallbackQuery, PreCheckoutQuery)
 from aiogram.fsm.storage.memory import MemoryStorage
 from anthropic import Anthropic
 from dotenv import load_dotenv
 
 import database as db
+from payments import send_premium_invoice, process_pre_checkout, process_successful_payment
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -118,15 +120,34 @@ async def cmd_grant(message: Message):
 @dp.callback_query(F.data == "buy_premium")
 async def cb_buy_premium(callback: CallbackQuery):
     await callback.message.answer(
-        "⭐ *Premium подписка — $15/месяц*\n\n"
+        "⭐ *Premium подписка*\n\n"
         "✅ Безлимитные сообщения\n"
-        "✅ Приоритетные ответы\n"
         "✅ История диалога 100 сообщений\n\n"
-        "Для оплаты напишите: @your_username\n"
-        "Принимаем: USDT (TRC-20), Telegram Stars",
+        "Выбери тариф:",
         parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="⭐ 150 Stars — 1 месяц", callback_data="pay_stars_150")],
+            [InlineKeyboardButton(text="⭐ 350 Stars — 3 месяца", callback_data="pay_stars_350")],
+        ])
     )
     await callback.answer()
+
+
+@dp.callback_query(F.data.startswith("pay_stars_"))
+async def cb_pay_stars(callback: CallbackQuery):
+    stars = int(callback.data.split("_")[2])
+    await send_premium_invoice(callback.message, stars)
+    await callback.answer()
+
+
+@dp.pre_checkout_query()
+async def pre_checkout(query: PreCheckoutQuery):
+    await process_pre_checkout(query)
+
+
+@dp.message(F.successful_payment)
+async def successful_payment(message: Message):
+    await process_successful_payment(message)
 
 
 @dp.callback_query(F.data == "my_status")
