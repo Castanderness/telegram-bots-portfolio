@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Разработка Telegram-ботов — от 5000 ₽</title>
+<meta name="description" content="Разрабатываю Telegram-боты на Python. AI-ассистент, бот записи, крипто-алерты. Срок 2-5 дней. Пишите!">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; }
+
+header { background: linear-gradient(135deg, #1e3a5f, #0f1117); padding: 60px 20px; text-align: center; }
+header h1 { font-size: 2.2rem; color: #fff; }
+header h1 span { color: #3b82f6; }
+header p { color: #94a3b8; margin-top: 12px; font-size: 1.1rem; }
+.price-badge { display: inline-block; background: #1e40af; color: #bfdbfe; padding: 6px 20px; border-radius: 20px; margin-top: 16px; font-size: 1rem; font-weight: 600; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+section { padding: 50px 20px; }
+h2 { font-size: 1.6rem; color: #f1f5f9; margin-bottom: 30px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px; }
+.card:hover { border-color: #3b82f6; }
+.card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.card h3 { color: #f1f5f9; font-size: 1rem; margin-bottom: 6px; }
+.card p { color: #94a3b8; font-size: .85rem; }
+.card .price { color: #34d399; font-weight: 700; margin-top: 10px; font-size: 1rem; }
+
+.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.step { background: #1e293b; border-radius: 10px; padding: 20px; text-align: center; }
+.step .num { font-size: 2rem; font-weight: 800; color: #3b82f6; }
+.step p { color: #94a3b8; font-size: .9rem; margin-top: 8px; }
+
+.cta { background: linear-gradient(135deg, #1d4ed8, #1e40af); text-align: center; padding: 60px 20px; }
+.cta h2 { color: #fff; font-size: 1.8rem; }
+.cta p { color: #bfdbfe; margin-top: 10px; }
+.btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.btn { padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: opacity .2s; }
+.btn-white { background: #fff; color: #1d4ed8; }
+.btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn:hover { opacity: .85; }
+
+.faq { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid #334155; padding: 20px 0; }
+.faq-item h4 { color: #f1f5f9; margin-bottom: 8px; }
+.faq-item p { color: #94a3b8; font-size: .9rem; }
+
+footer { text-align: center; padding: 30px; color: #475569; border-top: 1px solid #1e293b; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Telegram-боты <span>под ключ</span></h1>
+    <p>Python-разработчик. Срок 2-5 дней. Поддержка 7 дней.</p>
+    <div class="price-badge">от 5 000 ₽</div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Что делаю</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>AI-ассистент</h3>
+        <p>Отвечает на вопросы клиентов 24/7 через Claude или ChatGPT. Запоминает историю диалога.</p>
+        <div class="price">от 5 000 ₽</div>
+      </div>
+      <div class="card">
+        <div class="icon">📅</div>
+        <h3>Бот записи клиентов</h3>
+        <p>Клиент выбирает дату и время прямо в Telegram. Вы получаете уведомление моментально.</p>
+        <div class="price">от 7 000 ₽</div>
+      </div>
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Крипто-алерты</h3>
+        <p>Уведомляет когда BTC/ETH/SOL достигает нужной цены. Данные с CoinGecko бесплатно.</p>
+        <div class="price">от 5 000 ₽</div>
+      </div>
+      <div class="card">
+        <div class="icon">🍕</div>
+        <h3>Бот для ресторана</h3>
+        <p>Меню, бронирование столиков, акции. Всё через Telegram без приложений.</p>
+        <div class="price">от 8 000 ₽</div>
+      </div>
+      <div class="card">
+        <div class="icon">🕷️</div>
+        <h3>Парсинг сайтов</h3>
+        <p>Соберу любые данные с сайта в Excel/CSV. Товары, цены, контакты, объявления.</p>
+        <div class="price">от 2 000 ₽</div>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Автоматизация Excel</h3>
+        <p>Скрипт который делает отчёты, обрабатывает данные, рассылает письма. Один клик.</p>
+        <div class="price">от 2 500 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#0d1117;">
+  <div class="container">
+    <h2>Как работаем</h2>
+    <div class="how">
+      <div class="step"><div class="num">1</div><p>Вы описываете задачу. Я задаю уточняющие вопросы.</p></div>
+      <div class="step"><div class="num">2</div><p>Называю точную цену и срок. Предоплата 50%.</p></div>
+      <div class="step"><div class="num">3</div><p>Пишу код, показываю результат в процессе.</p></div>
+      <div class="step"><div class="num">4</div><p>Сдаю, обучаю, поддерживаю 7 дней бесплатно.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container faq">
+    <h2>Вопросы</h2>
+    <div class="faq-item">
+      <h4>Сколько стоит поддержка после сдачи?</h4>
+      <p>7 дней бесплатно. Далее — по договорённости, обычно 2 000–5 000 ₽/мес.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Нужен ли мне сервер?</h4>
+      <p>Нет. Я помогу с деплоем на VPS за 3–5 $ в месяц. Или на бесплатный Railway.app.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Как оплата?</h4>
+      <p>Предоплата 50% — карта, USDT, перевод. Остаток после сдачи.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Есть примеры работ?</h4>
+      <p>Да — 9 готовых ботов в открытом доступе на GitHub. Ссылка ниже.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="container">
+    <h2>Готовы начать?</h2>
+    <p>Ответ в течение 1 часа. Опишите задачу — назову цену.</p>
+    <div class="btns">
+      <a href="https://t.me/ai_asst_955338_bot" class="btn btn-white">Написать в Telegram</a>
+      <a href="https://github.com/Castanderness/telegram-bots-portfolio" class="btn btn-outline">Портфолио на GitHub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    Python & Telegram Bot Developer · 2-5 дней · Поддержка 7 дней
+  </div>
+</footer>
+
+</body>
+</html>
